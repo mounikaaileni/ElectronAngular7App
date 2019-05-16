@@ -1,0 +1,76 @@
+/*mixins*/
+@mixin alignments {
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+@mixin color-settings {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/*styles*/
+main {
+  align-items: center;
+  height: calc(100% - 60px);
+  display: block;
+
+  > .main-body {
+    text-align: center;
+    padding-top: 30px;
+
+    .color-pickers {
+      display: flex;
+      justify-content: center;
+      padding: 30px 0;
+
+      > input {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .image-src {
+    background-image: url('~src/ThumbsUp.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: 120px;
+    height: 150px;
+  }
+
+  .btn-grp {
+    display: flex;
+    justify-content: space-around;
+
+    .btn {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      min-width: 150px;
+      height: 30px;
+      border-radius: 0;
+
+      &:hover, &:focus {
+        border: 1px solid;
+        border-color: var(--text-color);
+      }
+    }
+  }
+
+  select {
+    width: 150px;
+
+    option {
+      &:hover, &:active, &:focus {
+        background-color: var(--primary-color);
+        color: var(--background-color-color);
+      }
+    }
+  }
+}
+header {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  @include alignments;
+}

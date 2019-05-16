@@ -1,0 +1,24 @@
+<header>
+  Themable App
+</header>
+<main>
+  <div class="main-body">
+    <label for="darkTheme">Select Theme :</label>
+    <select id="darkTheme" [formControl]="selectedTheme">
+      <option value="0">Dark</option>
+      <option value="1">Light</option>
+      <option value="2">Custom</option>
+    </select>
+    <div class="color-pickers" *ngIf="selectedTheme.value == '2'">
+      <label for="primary-color">Primary Color:</label><input name="pricolor" [formControl]="primaryColor" (change)="changeCustomThemeColors()" type="color"><br>
+      <label for="text-color">Text Color:</label><input name="txtcolor" [formControl]="textColor" (change)="changeCustomThemeColors()" type="color"><br>
+      <label for="bg-color">Background Color:</label><input name="bgcolor" [formControl]="bgColor" (change)="changeCustomThemeColors()" type="color"><br>
+    </div>
+    <div class="image-src" *ngIf="selectedTheme.value == '2'"></div>
+    <div class="btn-grp" *ngIf="selectedTheme.value == '2'">
+      <button class="btn">Yes, I like my Theme</button>
+      <button class="btn">No, I didnot like my Theme</button>
+    </div>
+  </div>
+</main>
+<router-outlet></router-outlet>
